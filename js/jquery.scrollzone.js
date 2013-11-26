@@ -39,7 +39,7 @@
 		       val ;
 	}
 
-	win.on('scroll', function() {
+	function scroll() {
 		var scrollTop = win.scrollTop(),
 		    zone, obj, test, min, max;
 
@@ -74,10 +74,13 @@
 
 		fontSize = false;
 		windowSize = false;
-	});
+	}
+
+	win.on('scroll', scroll);
 
 	jQuery.scrollzones = function(obj) {
 		zones = obj;
+		jQuery(document).ready(scroll);
 	};
 	
 	return jQuery.scrollzones;
